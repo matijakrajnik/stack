@@ -1,7 +1,7 @@
 defmodule Stack.Server do
   use GenServer
   
-  def start_server(initial_stack) do
+  def start_link(initial_stack) do
     GenServer.start_link(__MODULE__, initial_stack, name: __MODULE__)
   end
   
