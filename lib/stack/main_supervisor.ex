@@ -3,8 +3,8 @@ defmodule Stack.MainSupervisor do
   
   def start_link(initial_state) do
     result = {:ok, supervisor } = Supervisor.start_link(__MODULE__, [initial_state]) 
-    {:ok, stash} = Supervisor.start_child(supervisor, worker(Sequence.Stash, [initial_state]))
-    Supervisor.start_child(supervisor, supervisor(Sequence.ServerSupervisor, [stash]))
+    {:ok, stash} = Supervisor.start_child(supervisor, worker(Stack.Stash, [initial_state]))
+    Supervisor.start_child(supervisor, supervisor(Stack.ServerSupervisor, [stash]))
     result
   end
   

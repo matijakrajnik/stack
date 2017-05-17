@@ -3,7 +3,7 @@ defmodule Stack.Server do
   
   ### External API
   def start_link(stash_pid) do
-    GenServer.start_link(__MODULE__, stash_pid, name: __MODULE__)
+    {:ok, _pid} = GenServer.start_link(__MODULE__, stash_pid, name: __MODULE__)
   end
   
   def pop() do
@@ -40,7 +40,7 @@ defmodule Stack.Server do
     Stack.Stash.stash_stack stash_pid, stack
     IO.puts """
     Server terminated.
-    Reason: #{reason}
+    Reason: #{inspect reason}
     Last state: #{inspect stack}
     """
   end

@@ -15,7 +15,7 @@ defmodule Stack.Stash do
   end
   
   ### GenServer implementation
-  def handle_cast({:stash_stack, stack}, _from, _current_stack) do
+  def handle_cast({:stash_stack, stack}, _current_stack) do
     { :noreply, stack }
   end
   
