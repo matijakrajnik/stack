@@ -19,9 +19,9 @@ defmodule StackServerTest do
   
   test "pop from stack server" do
     {poped_element, new_list} = List.pop_at(@initial_state, 0)
-    assert pop() == poped_element
+    assert pop() == "Stack returned: #{poped_element}"
     {poped_element, _} = List.pop_at(new_list, 0)
-    assert pop() == poped_element
+    assert pop() == "Stack returned: #{poped_element}"
   end
   
   test "push to stack server" do

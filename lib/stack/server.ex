@@ -9,7 +9,7 @@ defmodule Stack.Server do
   end
   
   def pop() do
-    GenServer.call(__MODULE__, :pop)
+    with data = GenServer.call(__MODULE__, :pop), do: "Stack returned: #{data}"
   end
   
   def push(new_number) do
